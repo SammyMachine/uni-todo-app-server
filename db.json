@@ -1,43 +1,58 @@
 {
-  "list": [
+  "users": [
     {
-      "changed_at": 1649028672362,
-      "created_at": 1699028669221,
-      "done": false,
-      "id": "6d307315b92b",
-      "importance": "low",
-      "last_updated_by": "cf1",
-      "text": "6"
-    },
-    {
-      "changed_at": 1699101382082,
-      "created_at": 1699101378197,
-      "done": true,
-      "id": "63719488-923158d163b990a8",
-      "importance": "low",
-      "last_updated_by": "cf1",
-      "text": "32232111232"
-    },
-    {
-      "changed_at": 1699534308348,
-      "created_at": 1699534305774,
-      "done": false,
-      "id": "67aba695-137b-4417-abab-2e5ccd126a28",
-      "importance": "low",
-      "last_updated_by": "cf1",
-      "text": "vvassadsds"
-    },
-    {
-      "changed_at": 1700293802167,
-      "created_at": 1700293777123,
-      "done": false,
-      "id": "e4126aa6-d82a-499b-872d-9bc1e7833861",
-      "importance": "low",
-      "last_updated_by": "cf1",
-      "text": "Privetstvyu smotryasih"
+      "email": "some@checl.ru",
+      "password": "$2a$10$7QGPlVahP1sPzv0DVeT1o.tHknDwjmLh62l0wxXArnNapi9RHNiuy",
+      "list": [
+        {
+          "id": "12345",
+          "text": "test new ",
+          "importance": "HIGH",
+          "deadline": 1703970000000,
+          "done": false,
+          "color": "",
+          "created_at": 1697373712459,
+          "changed_at": 1697987963625,
+          "last_updated_by": "liz(s)a"
+        },
+        {
+          "id": "98765",
+          "text": "test post final",
+          "importance": "HIGH",
+          "deadline": 1703970000000,
+          "done": true,
+          "color": "",
+          "created_at": 1697373712459,
+          "changed_at": 1697987963625,
+          "last_updated_by": "liz(s)a"
+        },
+        {
+          "id": "11111",
+          "text": "6416146146",
+          "importance": "462",
+          "deadline": 1703970000000,
+          "done": true,
+          "color": "",
+          "created_at": 1697373712459,
+          "changed_at": 1697987963625,
+          "last_updated_by": "liz(s)a"
+        },
+        {
+          "id": "6492659",
+          "text": "test defdg",
+          "importance": "426427427",
+          "deadline": 1703970000000,
+          "done": true,
+          "color": "",
+          "created_at": 1697373712459,
+          "changed_at": 1697987963625,
+          "last_updated_by": "liz(s)a"
+        }
+      ],
+      "revision": [
+        2
+      ],
+      "id": 1
     }
-  ],
-  "revision": [
-    218
   ]
 }

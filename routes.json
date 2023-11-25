@@ -1,0 +1,5 @@
+{
+    "/users*": "/db/users$1",
+    "/:userid/list": "/db/users/$1/list",
+    "/:userid/list*": "/db/users/$1/list$2"
+  }
