@@ -3,9 +3,15 @@
     {
       "email": "some@checl.ru",
       "password": "$2a$10$7QGPlVahP1sPzv0DVeT1o.tHknDwjmLh62l0wxXArnNapi9RHNiuy",
+      "id": 1
+    }
+  ],
+  "todos": [
+    {
+      "id" : 1,
       "list": [
         {
-          "id": "12345",
+          "id": "315",
           "text": "test new ",
           "importance": "HIGH",
           "deadline": 1703970000000,
@@ -14,45 +20,11 @@
           "created_at": 1697373712459,
           "changed_at": 1697987963625,
           "last_updated_by": "liz(s)a"
-        },
-        {
-          "id": "98765",
-          "text": "test post final",
-          "importance": "HIGH",
-          "deadline": 1703970000000,
-          "done": true,
-          "color": "",
-          "created_at": 1697373712459,
-          "changed_at": 1697987963625,
-          "last_updated_by": "liz(s)a"
-        },
-        {
-          "id": "11111",
-          "text": "6416146146",
-          "importance": "462",
-          "deadline": 1703970000000,
-          "done": true,
-          "color": "",
-          "created_at": 1697373712459,
-          "changed_at": 1697987963625,
-          "last_updated_by": "liz(s)a"
-        },
-        {
-          "id": "6492659",
-          "text": "test defdg",
-          "importance": "426427427",
-          "deadline": 1703970000000,
-          "done": true,
-          "color": "",
-          "created_at": 1697373712459,
-          "changed_at": 1697987963625,
-          "last_updated_by": "liz(s)a"
         }
       ],
       "revision": [
         2
-      ],
-      "id": 1
+      ]
     }
   ]
 }
