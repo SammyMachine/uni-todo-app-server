@@ -164,6 +164,38 @@ server.use('/todos/:listid', (req, res, next) => {
   }
 });
 
+server.use('/checkuser', (req, res, next) => {
+  const emailToCheck = req.body.email;
+
+  // Проверяем, существует ли пользователь с указанным email
+  const userExists = router.db.get('users').some({ email: emailToCheck }).value();
+
+  // Отправляем результат в ответе
+  res.jsonp(userExists);
+});
+
+server.use('/resetuser', (req, res, next) => {
+  const emailToRemove = req.body.email;
+
+  // Находим пользователя по email
+  const userToRemove = router.db.get('users').find({ email: emailToRemove }).value();
+
+  if (userToRemove) {
+    const userId = userToRemove.id;
+
+    // Удаляем пользователя из списка todos по userId
+    router.db.get('todos').remove({ id: userId }).write();
+
+    // Удаляем пользователя из списка users
+    router.db.get('users').remove({ id: userId }).write();
+
+    res.jsonp({ message: 'Пользователь успешно удален' });
+  } else {
+    res.status(404).jsonp({ message: 'Пользователь не найден' });
+  }
+});
+
+
 server.use(router);
 
 const port = 3000;
