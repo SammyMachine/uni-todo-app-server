@@ -1,13 +1,73 @@
 {
   "users": [
     {
-      "email": "dada@mail.ru",
-      "password": "$2a$10$L1kUt4yoYA07A168qEv7Eu/kpuJZfQ.ACzQGJLkFrBckr46qaBnrC",
+      "id": 1,
+      "email": "a@mail.ru",
+      "password": "$2a$10$Tktpcx04TttfXApM2j./XOokfo1Rzu97ytRYBcYb5ecSCLe4AV8Yi"
+    },
+    {
+      "email": "da@mail.ru",
+      "password": "$2a$10$OULwerXJMzDIiEj/hC2ICO6tlDysjvjO6CRRkozOQsSBsQAG0urQu",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "email": "z@mail.ru",
+      "password": "$2a$10$BkAgx6fD2Fb2P3pr0fNeUe9lWiCXN0fLD9.x4D7pQYzNYXst33/bW"
+    },
+    {
+      "email": "za@mail.ru",
+      "password": "$2a$10$qbwRNnvvGjyIlDQthVKal.Yj2rbwy6ZLknrV/HPtwVvJb7VZu5.ve",
+      "id": 4
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
       "list": [],
       "revision": [
-        0
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "list": [],
+      "revision": [
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "list": [],
+      "revision": [
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "list": [
+        {
+          "changed_at": 1701376972572,
+          "created_at": 1701376960659,
+          "done": false,
+          "id": "3e6bb993-108e-469f-ad6d-18dc229e1dae",
+          "importance": "important",
+          "last_updated_by": "cf1",
+          "text": "213"
+        },
+        {
+          "changed_at": 1701376972572,
+          "created_at": 1701376960659,
+          "done": false,
+          "id": "3e6bb993-108e-469f-ad6d-18dc229e1dae",
+          "importance": "important",
+          "last_updated_by": "cf1",
+          "text": "134134"
+        }
       ],
-      "id": 1
+      "revision": [
+        236
+      ]
     }
   ]
 }
