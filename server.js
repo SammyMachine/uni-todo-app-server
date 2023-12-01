@@ -9,18 +9,17 @@ const rules = auth.rewriter({
 module.exports = server;
 
 server.db = router.db;
-
 server.use(middlewares);
-
 server.use(rules)
 server.use(auth);
-
 server.use(jsonServer.bodyParser);
 
 server.use('/todos/:listid', (req, res, next) => {
   if (req.method === 'GET') {
     const todoId = parseInt(req.params.listid);
-    const todoList = router.db.get('todos').find({ id: todoId }).value();
+    const todoList = router.db.get('todos').find({
+      id: todoId
+    }).value();
     if (todoList) {
       res.jsonp({
         list: todoList.list,
@@ -41,7 +40,9 @@ server.post('/todos/:listid', (req, res, next) => {
     const todoId = parseInt(req.params.listid);
     const newItem = req.body;
     const clientRevision = parseInt(req.get('revision'));
-    const todo = router.db.get('todos').find({ id: todoId }).value();
+    const todo = router.db.get('todos').find({
+      id: todoId
+    }).value();
 
     if (todo) {
       if (clientRevision === todo.revision[0]) {
@@ -78,14 +79,15 @@ server.post('/todos/:listid', (req, res, next) => {
   }
 });
 
-
 server.use('/todos/:listid/:id', (req, res, next) => {
   if (req.method === 'PUT') {
     const listId = parseInt(req.params.listid);
     const itemId = req.params.id;
     const updatedItem = req.body;
     const clientRevision = parseInt(req.get('revision'));
-    const todo = router.db.get('todos').find({ id: listId }).value();
+    const todo = router.db.get('todos').find({
+      id: listId
+    }).value();
     if (todo) {
       if (clientRevision === todo.revision[0]) {
         todo.revision[0] += 1;
@@ -98,13 +100,19 @@ server.use('/todos/:listid/:id', (req, res, next) => {
             revision: todo.revision[0]
           });
         } else {
-          res.status(404).json({ message: 'Элемент не найден' });
+          res.status(404).json({
+            message: 'Элемент не найден'
+          });
         }
       } else {
-        res.status(409).json({ message: 'Конфликт ревизии' });
+        res.status(409).json({
+          message: 'Конфликт ревизии'
+        });
       }
     } else {
-      res.status(404).json({ message: 'Элемент списка не найден' });
+      res.status(404).json({
+        message: 'Элемент списка не найден'
+      });
     }
   } else {
     next();
@@ -116,7 +124,9 @@ server.use('/todos/:listid/:id', (req, res, next) => {
     const listId = parseInt(req.params.listid);
     const itemId = req.params.id;
     const clientRevision = parseInt(req.get('revision'));
-    const todo = router.db.get('todos').find({ id: listId }).value();
+    const todo = router.db.get('todos').find({
+      id: listId
+    }).value();
     if (todo) {
       if (clientRevision === todo.revision[0]) {
         const existingItemIndex = todo.list.findIndex(item => item.id === itemId);
@@ -129,39 +139,48 @@ server.use('/todos/:listid/:id', (req, res, next) => {
             revision: todo.revision[0]
           });
         } else {
-          res.status(404).json({ message: 'Элемент не найден' });
+          res.status(404).json({
+            message: 'Элемент не найден'
+          });
         }
       } else {
-        res.status(409).json({ message: 'Конфликт ревизии' });
+        res.status(409).json({
+          message: 'Конфликт ревизии'
+        });
       }
     } else {
-      res.status(404).json({ message: 'Список не найден' });
+      res.status(404).json({
+        message: 'Список не найден'
+      });
     }
   } else {
     next();
   }
 });
 
-
 server.use('/todos/:listid', (req, res, next) => {
   if (req.method === 'PATCH') {
     const listId = parseInt(req.params.listid);
     const clientRevision = parseInt(req.get('revision'));
-    const todo = router.db.get('todos').find({ id: listId }).value();
+    const todo = router.db.get('todos').find({
+      id: listId
+    }).value();
     if (todo) {
-        const updatedList = req.body.list;
-        todo.list = updatedList;
-        todo.revision[0] = clientRevision;
-        router.db.write();
-        res.jsonp({
-          list: todo.list,
-          revision: todo.revision[0]
-        });
+      const updatedList = req.body.list;
+      todo.list = updatedList;
+      todo.revision[0] = clientRevision;
+      router.db.write();
+      res.jsonp({
+        list: todo.list,
+        revision: todo.revision[0]
+      });
     } else {
       const newList = req.body.list;
       const newRevision = clientRevision;
       if (!newList || !newRevision) {
-        res.status(400).json({ message: 'Отсутствуют необходимые данные' });
+        res.status(400).json({
+          message: 'Отсутствуют необходимые данные'
+        });
         return;
       }
       const newTodo = {
@@ -180,18 +199,19 @@ server.use('/todos/:listid', (req, res, next) => {
   }
 });
 
-
-
-
 server.use('/checkuser', (req, res, next) => {
   const emailToCheck = req.body.email;
 
   // Ищем пользователя по email
-  const user = router.db.get('users').find({ email: emailToCheck }).value();
+  const user = router.db.get('users').find({
+    email: emailToCheck
+  }).value();
 
   if (user) {
     // Находим соответствующий todo по userId
-    const todo = router.db.get('todos').find({ id: user.id }).value();
+    const todo = router.db.get('todos').find({
+      id: user.id
+    }).value();
 
     res.jsonp({
       list: todo.list,
@@ -209,7 +229,10 @@ server.use('/checkuser', (req, res, next) => {
 
 server.use('/reset/:id', (req, res, next) => {
   const userId = parseInt(req.params.id);
-  const { email, password } = req.body;
+  const {
+    email,
+    password
+  } = req.body;
 
   // Создаем объект пользователя с обновленным паролем
   const updatedUser = {
@@ -224,9 +247,7 @@ server.use('/reset/:id', (req, res, next) => {
   server.handle(req, res, next);
 });
 
-
 server.use(router);
-
 
 const port = 3000;
 server.listen(port, () => {
