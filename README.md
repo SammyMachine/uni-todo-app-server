@@ -23,7 +23,7 @@ Before you begin, ensure you have the following installed on your machine:
 3. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/uni-todo-app.git
+    git clone https://github.com/SammyMachine/uni-todo-app.git
     ```
 
 4. Change into the project directory:
